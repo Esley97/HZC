@@ -5,8 +5,8 @@
 
 body {
     background-color: #1D232A;
-    font-family: 'open Sans', 'icones', sans-serif;
-    color: #ffffff;
+    font-family: 'Open Sans', 'icones', sans-serif;
+    color: #FFFFFF;
 }
 
 @media screen and (min-width: 1440px) {
@@ -27,20 +27,20 @@ body {
 
 .cabecalho__menu i::before {
     content: "\e904";
-    font-size: 24px ;
-} 
+    font-size: 24px;
+}
 
-.cabecalho__notificacao i::before{
+.cabecalho__notificacao i::before {
     content: "\e906";
     font-size: 24px;
 }
 
-.cabecalho__logo{
+.cabecalho__logo {
     width: 40px;
 }
 
 .cabecalho__perfil {
- display: none;   
+    display: none;
 }
 
 @media screen and (min-width: 1440px) {
@@ -92,7 +92,7 @@ body {
     }
 }
 
-.menu-lateral{
+.menu-lateral {
     display: flex;
     flex-direction: column;
     background-color: #15191C;
@@ -101,16 +101,15 @@ body {
 
     position: absolute;
     left: -100vw;
-    transition: 0.25s;
-    z-index: 99;
+    transition: .25s;
 }
 
 .menu-lateral--ativo {
     left: 0;
-    transition: .25s ;
+    transition: .25s;
 }
 
-.menu-lateral__logo{
+.menu-lateral__logo {
     width: 118px;
     align-self: center;
     padding: 16px;
@@ -122,13 +121,12 @@ body {
     padding-left: 64px;
     display: flex;
     align-items: center;
-
 }
 
 .menu-lateral__link--ativo {
-    color: #ffffff;
+    color: #FFFFFF;
     padding-left: 56px;
-    border-left: 8px solid #ffffff ;
+    border-left: 8px solid #FFFFFF;
 }
 
 .menu-lateral__link::before {
@@ -142,7 +140,6 @@ body {
 
 .menu-lateral__link--inicio::before {
     content: "\e902";
-
 }
 
 .menu-lateral__link--videos::before {
@@ -154,7 +151,7 @@ body {
 }
 
 .menu-lateral__link--integrantes::before {
-   content: "\e903"; 
+    content: "\e903";
 }
 
 .menu-lateral__link--camisas::before {
@@ -166,8 +163,8 @@ body {
 }
 
 @media screen and (min-width: 1440px) {
-    .menu-lateral{
-        position:static;
+    .menu-lateral {
+        position: static;
         width: 200px;
         grid-column: 1;
         grid-row: 1 / span 2;
@@ -178,17 +175,15 @@ body {
     padding: 24px 16px;
     display: grid;
     gap: 16px;
-
-
 }
 
-.titulo-pagina{
+.titulo-pagina {
     font-size: 1.5rem;
     font-weight: 700;
 }
 
 .titulo-secao {
-    font-size:1.2rem;
+    font-size: 1.2rem;
     font-weight: 700;
 }
 
@@ -196,9 +191,20 @@ body {
     .principal {
         display: grid;
         grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-recentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-recentes destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"       
+        ;
         column-gap: 32px;
-        padding: 16px 60 px;
+        padding: 16px 60px;
         grid-column: 2;
+    }
+
+    .titulo-secao {
+        grid-column: span 4;
     }
 }
 
@@ -209,13 +215,12 @@ body {
     background-color: #2C343A;
 }
 
-.cartao--destaque {
-    margin-bottom: 16px;
-
+.cartao__imagem--desktop {
+    display: none;
 }
 
-.cartao__imagem {
-    width: 100%;
+.cartao--destaque {
+    margin-bottom: 16px;
 }
 
 .cartao__conteudo {
@@ -229,39 +234,39 @@ body {
     grid-column: span 2;
 }
 
-.cartao__titulo{
+.cartao__titulo {
     font-size: 1.2rem;
     font-weight: 700;
     grid-column: span 2;
 }
 
 .cartao__perfil {
-    color: #95999c;
+    color: #95999C;
     font-size: 0.9rem;
     grid-column: span 2;
 }
 
-.cartao_info {
+.cartao__info {
     display: flex;
     align-items: center;
-    color: #95999c;
+    color: #95999C;
 }
 
 .cartao__info--tempo::before {
     content: "\e90c";
-    margin-right: 8px;
+    margin-right: 8px;    
 }
 
 .cartao__info--visualizacao::before {
     content: "\e90f";
-    margin-right: 8px;
+    margin-right: 8px;    
 }
 
 .cartao__botao {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0480dc;
+    background-color: #0480DC;
     width: 40px;
     height: 40px;
     border-radius: 10px;
@@ -287,8 +292,25 @@ body {
     display: none;
 }
 
-@media screen and (min-width:1440px) {
-    .cartao--recentes{
+@media screen and (min-width: 1440px) {
+    .cartao--destaque {
+        margin-bottom: 0;
+    }
+
+    .cartao__imagem--mobile {
+        display: none;
+    }
+
+    .cartao__imagem--desktop {
+        display: block;
+    }
+
+    .cartao__botao--destaque {
+        grid-column: auto;
+        padding: 16px 8px;
+    }
+
+    .cartao--recentes {
         display: grid;
         grid-template-columns: auto auto;
         align-items: center;
@@ -296,7 +318,9 @@ body {
         width: 256px;
         padding: 16px;
         box-sizing: border-box;
+        align-self: flex-start;
     }
+
     .cartao--recentes .cartao__titulo {
         grid-column: auto;
     }
@@ -304,11 +328,11 @@ body {
     .cartao__link {
         font-size: 0.8rem;
         font-weight: 600;
-        color: #0480dc;
+        color: #0480DC;
         justify-self: flex-end;
     }
     
-    .cartao__lista{
+    .cartao__lista {
         display: grid;
         row-gap: 16px;
         grid-column: span 2;
@@ -320,18 +344,18 @@ body {
         gap: 8px;
     }
 
-    .cartao__item--thumbnail {
+    .cartao__item-thumbnail {
         width: 32px;
         grid-row: span 2;
     }
 
-    .cartao__item--titulo {
+    .cartao__item-titulo {
         font-size: 0.9rem;
         line-height: 1.2rem;
         font-weight: 700;
     }
 
-    .cartao__item--perfil {
+    .cartao__item-perfil {
         font-size: 0.8rem;
         color: #95999C;
     }
@@ -340,4 +364,34 @@ body {
 .secao {
     display: grid;
     gap: 16px;
+}
+
+@media screen and (min-width: 1440px) {
+    .secao {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .destaque-video {
+        grid-area: destaque-video;
+    }
+    
+    .videos-recentes {
+        grid-area: videos-recentes;
+    }
+    
+    .secao-videos {
+        grid-area: secao-videos;
+    }
+    
+    .destaque-produtos {
+        grid-area: destaque-produtos;
+    }
+    
+    .produtos-recentes {
+        grid-area: produtos-recentes;
+    }
+    
+    .secao-produtos {
+        grid-area: secao-produtos;
+    }
 }
